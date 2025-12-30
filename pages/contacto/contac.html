@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contacto | David Haney</title>
+  <link rel="stylesheet" href="pages/contacto/style.css">
+</head>
+<body>
+
+<div class="fondo"></div>
+
+<a href="index.html" class="btn-volver">? Inicio</a>
+
+<header class="header">
+  <h1 class="titulo neon">CONTACTO</h1>
+</header>
+
+<main class="contacto-layout">
+
+  <!-- Carrusel izquierdo -->
+  <div class="soporte-carrusel">
+    <img id="soporte-izq" src="../IMG/mail1.png" alt="soporte">
+  </div>
+
+  <!-- Formulario -->
+  <section class="contacto-box anim-entrada">
+    <h2>Contacto directo</h2>
+
+    <p class="aviso">
+      ? Uso exclusivo para contacto serio.<br>
+      El mal uso será ignorado automáticamente.
+    </p>
+
+    <form action="https://formsubmit.co/tu-correo@gmail.com" method="POST">
+      <input type="hidden" name="_captcha" value="true">
+      <input type="hidden" name="_template" value="table">
+      <input type="hidden" name="_subject" value="Mensaje desde la Web">
+      
+      <label>Nombre</label>
+      <input type="text" name="nombre" required>
+
+      <label>Correo</label>
+      <input type="email" name="email" required>
+
+      <label>Asunto (IMPORTANTE)</label>
+      <input type="text" name="asunto" required>
+
+      <label>Mensaje</label>
+      <textarea name="mensaje" rows="5" required></textarea>
+
+      <button type="submit">Enviar</button>
+    </form>
+
+    <p class="aviso-secundario">
+      ?? El mensaje llegará directo a mi correo.
+    </p>
+  </section>
+
+  <!-- Carrusel derecho -->
+  <div class="soporte-carrusel">
+    <img id="soporte-der" src="../IMG/support1.png" alt="correo">
+  </div>
+
+</main>
+
+<footer class="footer">
+  <p>© Derechos de autor — David Haney</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

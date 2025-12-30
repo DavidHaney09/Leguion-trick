@@ -1,0 +1,101 @@
+/* Título neon */
+.neon {
+  text-shadow: 
+    0 0 8px #5f2cff,
+    0 0 16px #1e90ff;
+}
+
+/* Layout contacto */
+.contacto-layout {
+  display: grid;
+  grid-template-columns: 280px 1fr 280px;
+  align-items: center;
+  gap: 25px;
+  padding: 40px;
+}
+
+/* Carruseles laterales */
+.soporte-carrusel {
+  height: 420px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.soporte-carrusel img {
+  width: 100%;
+  max-width: 240px;
+  border-radius: 14px;
+  box-shadow: 0 0 20px rgba(95,44,255,0.6);
+  animation: flotar 4s ease-in-out infinite;
+}
+
+/* Animación flotante */
+@keyframes flotar {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+}
+
+/* Caja contacto */
+.contacto-box {
+  background: linear-gradient(
+    135deg,
+    rgba(95,44,255,0.25),
+    rgba(30,144,255,0.25)
+  );
+  backdrop-filter: blur(8px);
+  padding: 28px;
+  border-radius: 16px;
+  box-shadow: 0 0 30px rgba(0,0,0,0.6);
+}
+
+/* Entrada suave */
+.anim-entrada {
+  animation: aparecer 1s ease forwards;
+}
+
+@keyframes aparecer {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Inputs */
+.contacto-box input,
+.contacto-box textarea {
+  background: rgba(0,0,0,0.5);
+  color: #fff;
+  border: 1px solid rgba(95,44,255,0.5);
+}
+
+.contacto-box input:focus,
+.contacto-box textarea:focus {
+  border-color: #1e90ff;
+}
+
+/* Botón */
+.contacto-box button {
+  background: linear-gradient(135deg, #5f2cff, #1e90ff);
+  font-weight: bold;
+}
+
+.contacto-box button:hover {
+  box-shadow: 0 0 15px #5f2cff;
+  transform: scale(1.03);
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .contacto-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .soporte-carrusel {
+    display: none;
+  }
+}
