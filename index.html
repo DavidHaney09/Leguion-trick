@@ -1,9 +1,7 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <!-- CODIFICACI�N BLINDADA -->
   <meta charset="UTF-8">
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -22,35 +20,31 @@
     <img src="IMG/logo.png" class="logo" alt="logo derecha">
   </header>
 
-  <!-- Contenido principal -->
+  <!-- Contenido -->
   <main class="contenedor">
 
     <!-- Botonera -->
     <aside class="botonera">
-      <button>Inicio</button>
-      <button>Proyectos</button>
-      <button onclick="irA('galeria.html')">Galer�a</button>
-      <button>Tecnologia</button>
-      <button>Programacion</button>
-      <button>Juegos</button>
-      <button>Extras</button>
-      <button>Contacto</button>
-      <button>ejemplo</button>
+      <button onclick="irA('index.html')">Inicio</button>
+      <button onclick="irA('paginas/proyectos.html')">Proyectos</button>
+      <button onclick="irA('paginas/galeria.html')">Galería</button>
+      <button onclick="irA('paginas/tecnologia.html')">Tecnología</button>
+      <button onclick="irA('paginas/programacion.html')">Programación</button>
+      <button onclick="irA('paginas/juegos.html')">Juegos</button>
+      <button onclick="irA('paginas/contacto.html')">Contacto</button>
     </aside>
 
-    <!-- Descripci�n -->
+    <!-- Descripción -->
     <section class="descripcion">
-      <h2>Bienvenido</h2>
+      <h2>Bienvenido 👋</h2>
       <p>
-        Esta es mi pagina web personal creada desde cero con HTML, CSS y JavaScript.
-        Aqui muestro cosas relacionadas con el canal o con lo nesesario para poder 
-        seguir aprendiendo. Mostrare planticas o cosas que puedan ayudarlos para avanzar
+        Esta es mi página web personal creada desde cero con HTML, CSS y JavaScript.
+        Aquí comparto contenido relacionado con mi canal de YouTube, tecnología,
+        programación y aprendizaje.
         <br><br>
-        espero poder ayudarlos con todo lo que pueda a mi alcance de las manos y puedan
-        disfrutar y avanzar en todo lo que quieran aprender entre otras cosas 
-        espero disfruten mi pagina
+        La idea es ayudar, enseñar y crecer juntos en este mundo digital.
         <br><br>
-        Pagina creada por <strong>David Haney</strong>
+        Página creada por <strong>David Haney</strong> 💜💙
       </p>
     </section>
 
@@ -69,13 +63,11 @@
       <button>YouTube</button>
       <button>X</button>
     </div>
-
-    <!-- TEXTO SEGURO CON ENTIDADES HTML -->
-    <p>&copy; Derechos de autor &mdash; David Haney</p>
+    <p>&copy; Derechos de autor — David Haney</p>
   </footer>
 
   <!-- Audio -->
-  <audio id="audio-player" autoplay></audio>
+  <audio id="audio-player"></audio>
 
   <script src="script.js"></script>
 </body>
