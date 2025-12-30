@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <!-- CODIFICACIÓN BLINDADA -->
+  <meta charset="UTF-8">
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>David Haney | Web</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Fondo -->
+  <div class="fondo"></div>
+
+  <!-- Header -->
+  <header class="header">
+    <img src="IMG/logo.png" class="logo" alt="logo izquierda">
+    <h1 class="titulo">MI PAGINA WEB</h1>
+    <img src="IMG/logo.png" class="logo" alt="logo derecha">
+  </header>
+
+  <!-- Contenido principal -->
+  <main class="contenedor">
+
+    <!-- Botonera -->
+    <aside class="botonera">
+      <button>Inicio</button>
+      <button>Proyectos</button>
+      <button onclick="irA('galeria.html')">Galería</button>
+      <button>Tecnologia</button>
+      <button>Programacion</button>
+      <button>Juegos</button>
+      <button>Extras</button>
+      <button>Contacto</button>
+      <button>ejemplo</button>
+    </aside>
+
+    <!-- Descripción -->
+    <section class="descripcion">
+      <h2>Bienvenido</h2>
+      <p>
+        Esta es mi pagina web personal creada desde cero con HTML, CSS y JavaScript.
+        Aqui muestro cosas relacionadas con el canal o con lo nesesario para poder 
+        seguir aprendiendo. Mostrare planticas o cosas que puedan ayudarlos para avanzar
+        <br><br>
+        espero poder ayudarlos con todo lo que pueda a mi alcance de las manos y puedan
+        disfrutar y avanzar en todo lo que quieran aprender entre otras cosas 
+        espero disfruten mi pagina
+        <br><br>
+        Pagina creada por <strong>David Haney</strong>
+      </p>
+    </section>
+
+    <!-- Carrusel -->
+    <section class="carrusel">
+      <img id="carrusel-img" src="https://picsum.photos/700/400?1" alt="carrusel">
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="redes">
+      <button>Facebook</button>
+      <button>TikTok</button>
+      <button>YouTube</button>
+      <button>X</button>
+    </div>
+
+    <!-- TEXTO SEGURO CON ENTIDADES HTML -->
+    <p>&copy; Derechos de autor &mdash; David Haney</p>
+  </footer>
+
+  <!-- Audio -->
+  <audio id="audio-player" autoplay></audio>
+
+  <script src="script.js"></script>
+</body>
+</html>
