@@ -1,92 +1,98 @@
-/* Título neon */
-.neon {
-  text-shadow: 
-    0 0 8px #5f2cff,
-    0 0 16px #1e90ff;
+body {
+  color: #fff;
+  min-height: 100vh;
+  background: transparent;
 }
 
-/* Layout contacto */
+/* Fondo animado REAL */
+.fondo {
+  position: fixed;
+  inset: 0;
+  background: linear-gradient(
+    120deg,
+    #5f2cff,
+    #1e90ff,
+    #8a2be2
+  );
+  background-size: 300% 300%;
+  animation: fondo 12s ease infinite;
+  z-index: -1;
+}
+
+@keyframes fondo {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Layout */
 .contacto-layout {
   display: grid;
-  grid-template-columns: 280px 1fr 280px;
-  align-items: center;
-  gap: 25px;
+  grid-template-columns: 260px 1fr 260px;
+  gap: 40px;
   padding: 40px;
-}
-
-/* Carruseles laterales */
-.soporte-carrusel {
-  height: 420px;
-  display: flex;
   align-items: center;
-  justify-content: center;
 }
 
-.soporte-carrusel img {
-  width: 100%;
-  max-width: 240px;
-  border-radius: 14px;
-  box-shadow: 0 0 20px rgba(95,44,255,0.6);
-  animation: flotar 4s ease-in-out infinite;
-}
-
-/* Animación flotante */
-@keyframes flotar {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-12px); }
-}
-
-/* Caja contacto */
+/* Caja formulario */
 .contacto-box {
-  background: linear-gradient(
-    135deg,
-    rgba(95,44,255,0.25),
-    rgba(30,144,255,0.25)
-  );
-  backdrop-filter: blur(8px);
-  padding: 28px;
-  border-radius: 16px;
-  box-shadow: 0 0 30px rgba(0,0,0,0.6);
+  background: rgba(0,0,0,0.45);
+  padding: 32px;
+  border-radius: 18px;
+  box-shadow: 0 0 30px rgba(0,0,0,0.7);
 }
 
-/* Entrada suave */
-.anim-entrada {
-  animation: aparecer 1s ease forwards;
+/* Campos separados */
+.campo {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 18px;
 }
 
-@keyframes aparecer {
-  from {
-    opacity: 0;
-    transform: scale(0.95);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
+.campo label {
+  margin-bottom: 6px;
+  font-size: 0.95rem;
+  color: #cfcfff;
 }
 
-/* Inputs */
-.contacto-box input,
-.contacto-box textarea {
-  background: rgba(0,0,0,0.5);
+.campo input,
+.campo textarea {
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid rgba(95,44,255,0.6);
+  background: rgba(0,0,0,0.55);
   color: #fff;
-  border: 1px solid rgba(95,44,255,0.5);
 }
 
-.contacto-box input:focus,
-.contacto-box textarea:focus {
+.campo input:focus,
+.campo textarea:focus {
+  outline: none;
   border-color: #1e90ff;
 }
 
-/* Botón */
+/* BotÃ³n */
 .contacto-box button {
+  width: 100%;
+  padding: 14px;
+  border-radius: 10px;
+  border: none;
   background: linear-gradient(135deg, #5f2cff, #1e90ff);
-  font-weight: bold;
+  color: #fff;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: 0.3s;
 }
 
 .contacto-box button:hover {
-  box-shadow: 0 0 15px #5f2cff;
+  box-shadow: 0 0 18px #5f2cff;
   transform: scale(1.03);
+}
+
+/* Carruseles */
+.soporte-carrusel img {
+  max-width: 220px;
+  border-radius: 14px;
+  animation: flotar 4s ease-in-out infinite;
 }
 
 /* Responsive */
