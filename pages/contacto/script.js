@@ -1,19 +1,57 @@
-const izqImgs = [
-  "../IMG/mail1.png",
-  "../IMG/mail2.png",
-  "../IMG/mail3.png"
-];
+// ENTRADA
+window.addEventListener("load", () => {
+  document.querySelector(".contacto-box")?.classList.add("mostrar");
+});
 
-const derImgs = [
-  "../IMG/support1.png",
-  "../IMG/support2.png",
-  "../IMG/support3.png"
-];
+// GLOW INPUTS
+document.querySelectorAll("input, textarea").forEach(el => {
+  el.addEventListener("focus", () => {
+    el.style.boxShadow = "0 0 12px #00f5ff";
+  });
+  el.addEventListener("blur", () => {
+    el.style.boxShadow = "none";
+  });
+});
 
-let i = 0;
+// FORM
+const form = document.querySelector("form");
 
-setInterval(() => {
-  i = (i + 1) % izqImgs.length;
-  document.getElementById("soporte-izq").src = izqImgs[i];
-  document.getElementById("soporte-der").src = derImgs[i];
-}, 3000);
+form.addEventListener("submit", e => {
+  let ok = true;
+
+  form.querySelectorAll("[required]").forEach(campo => {
+    if (!campo.value.trim()) {
+      campo.classList.add("error");
+      ok = false;
+      setTimeout(()=>campo.classList.remove("error"),600);
+    }
+  });
+
+  if (!ok) {
+    e.preventDefault();
+    sacudir(form);
+    toast("⚠️ Completa todo", "error");
+    return;
+  }
+
+  const btn = form.querySelector("button");
+  btn.textContent = "Enviando...";
+  btn.disabled = true;
+  toast("✅ Enviado correctamente", "ok");
+});
+
+// TOAST
+function toast(msg, tipo) {
+  const t = document.createElement("div");
+  t.className = `toast ${tipo}`;
+  t.textContent = msg;
+  document.body.appendChild(t);
+  setTimeout(()=>t.classList.add("show"),100);
+  setTimeout(()=>t.remove(),3000);
+}
+
+// SHAKE
+function sacudir(el) {
+  el.classList.add("shake");
+  setTimeout(()=>el.classList.remove("shake"),400);
+}
