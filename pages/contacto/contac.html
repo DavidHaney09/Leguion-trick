@@ -8,11 +8,9 @@
 </head>
 <body>
 
-<!-- FONDO -->
 <div class="fondo"></div>
 
-<!-- BOTÓN VOLVER -->
-<a href="../index.html" class="btn-volver">⬅ Inicio</a>
+<a href="../index.html" class="btn-inicio">🏠 Inicio</a>
 
 <header class="header">
   <h1 class="titulo neon">CONTACTO</h1>
@@ -20,19 +18,14 @@
 
 <main class="contacto-layout">
 
-  <!-- IZQUIERDA -->
   <div class="soporte-carrusel">
-    <img id="soporte-izq" src="mail1.jpg" alt="correo">
+    <img src="mail1.jpg" alt="correo">
   </div>
 
-  <!-- FORMULARIO -->
   <section class="contacto-box anim-entrada">
 
     <h2>Comunícate conmigo</h2>
-
-    <p class="aviso">
-      Uso exclusivo para mensajes serios y profesionales.
-    </p>
+    <p class="aviso">Uso exclusivo para mensajes serios y profesionales.</p>
 
     <form action="https://formsubmit.co/tu-correo@gmail.com" method="POST">
       <input type="hidden" name="_captcha" value="true">
@@ -40,50 +33,41 @@
 
       <div class="campo">
         <label>Nombre</label>
-        <input type="text" name="nombre" placeholder="Tu nombre" required>
+        <input type="text" name="nombre" required>
       </div>
 
       <div class="campo">
-        <label>Correo electrónico</label>
-        <input type="email" name="email" placeholder="correo@ejemplo.com" required>
+        <label>Correo</label>
+        <input type="email" name="email" required>
       </div>
 
       <div class="campo">
         <label>Asunto</label>
-        <input type="text" name="asunto" placeholder="Motivo del mensaje" required>
+        <input type="text" name="asunto" required>
       </div>
 
       <div class="campo">
         <label>Mensaje</label>
-        <textarea name="mensaje" rows="5" placeholder="Escribe tu mensaje..." required></textarea>
+        <textarea name="mensaje" rows="5" required></textarea>
       </div>
 
       <button type="submit">Enviar mensaje</button>
     </form>
 
-    <p class="aviso-secundario">
-      📩 El mensaje llegará directamente a mi correo.
-    </p>
+    <p class="aviso-secundario">📩 El mensaje llegará a mi correo</p>
 
   </section>
 
-  <!-- DERECHA -->
   <div class="soporte-carrusel">
-    <img id="soporte-der" src="../IMG/support1.png" alt="soporte">
+    <img src="../IMG/support1.png" alt="soporte">
   </div>
 
 </main>
 
 <footer class="footer">
-  <p>© Derechos de autor — David Haney</p>
+  © Derechos reservados — David Haney
 </footer>
 
 <script src="script.js"></script>
 </body>
 </html>
-
-
-
-
-
-
