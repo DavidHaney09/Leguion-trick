@@ -4,30 +4,32 @@
 }
 
 body {
-  background: linear-gradient(120deg, #050b1e, #3a0ca3);
-  min-height: 100vh;
   margin: 0;
-  padding: 0;
+  min-height: 100vh;
+  background: linear-gradient(120deg, #050b1e, #3a0ca3);
   color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-/* BOTÓN INICIO */
+/* BOTÓN */
 .btn-inicio {
   position: fixed;
   top: 15px;
   left: 15px;
-  text-decoration: none;
   color: #0ff;
+  text-decoration: none;
   border: 1px solid #0ff;
-  padding: 8px 14px;
-  border-radius: 20px;
+  padding: 6px 12px;
+  border-radius: 15px;
 }
 
-/* CONTENEDOR */
-.contenedor {
+/* CAJA */
+.contacto-box {
+  width: 100%;
   max-width: 420px;
-  margin: 100px auto;
-  background: rgba(0,0,0,0.7);
+  background: rgba(0,0,0,.7);
   padding: 25px;
   border-radius: 15px;
   box-shadow: 0 0 20px #0ff;
@@ -41,8 +43,8 @@ h1 {
 
 .aviso {
   text-align: center;
-  opacity: 0.8;
-  margin-bottom: 20px;
+  opacity: .8;
+  margin-bottom: 15px;
 }
 
 /* FORM */
@@ -51,39 +53,68 @@ form {
   flex-direction: column;
 }
 
-/* LABELS */
 label {
   margin-top: 10px;
   margin-bottom: 5px;
 }
 
-/* INPUTS (CLAVE) */
 input,
 textarea {
   padding: 10px;
+  font-size: 16px;
   border-radius: 8px;
   border: none;
   outline: none;
-  font-size: 16px;
 }
 
-/* TEXTAREA */
 textarea {
   min-height: 100px;
-  resize: vertical;
 }
 
 /* BOTÓN */
 button {
   margin-top: 15px;
   padding: 12px;
-  border: none;
   border-radius: 20px;
+  border: none;
   background: #0ff;
   font-weight: bold;
   cursor: pointer;
 }
 
-button:hover {
-  background: #00caca;
+/* ERROR */
+.error {
+  border: 2px solid red !important;
+}
+
+/* SHAKE */
+.shake {
+  animation: shake .4s;
+}
+@keyframes shake {
+  0%{transform:translateX(0)}
+  25%{transform:translateX(-6px)}
+  50%{transform:translateX(6px)}
+  75%{transform:translateX(-6px)}
+  100%{transform:translateX(0)}
+}
+
+/* TOAST */
+.toast {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  padding: 12px 18px;
+  border-radius: 15px;
+  font-weight: bold;
+}
+
+.toast.ok {
+  background: #00f5ff;
+  color: #000;
+}
+
+.toast.error {
+  background: #ff3b3b;
+  color: #fff;
 }
