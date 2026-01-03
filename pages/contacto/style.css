@@ -6,115 +6,102 @@
 body {
   margin: 0;
   min-height: 100vh;
-  background: linear-gradient(120deg, #050b1e, #3a0ca3);
-  color: white;
+  background: linear-gradient(135deg, #050b2e, #3b0f75);
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
 }
 
-/* BOTÓN */
 .btn-inicio {
-  position: fixed;
-  top: 15px;
-  left: 15px;
-  color: #0ff;
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  padding: 10px 20px;
+  color: #00f5ff;
+  border: 2px solid #00f5ff;
+  border-radius: 25px;
   text-decoration: none;
-  border: 1px solid #0ff;
-  padding: 6px 12px;
-  border-radius: 15px;
 }
 
-/* CAJA */
 .contacto-box {
+  background: rgba(0,0,0,0.5);
+  padding: 30px;
+  border-radius: 20px;
+  width: 90%;
+  max-width: 400px;
+  opacity: 0;
+  transform: scale(0.9);
+  transition: 0.5s;
+}
+
+.contacto-box.mostrar {
+  opacity: 1;
+  transform: scale(1);
+}
+
+h2 {
+  color: #00f5ff;
+  text-align: center;
+}
+
+input, textarea {
   width: 100%;
-  max-width: 420px;
-  background: rgba(0,0,0,.7);
-  padding: 25px;
-  border-radius: 15px;
-  box-shadow: 0 0 20px #0ff;
-}
-
-/* TEXTO */
-h1 {
-  text-align: center;
-  margin-bottom: 5px;
-}
-
-.aviso {
-  text-align: center;
-  opacity: .8;
-  margin-bottom: 15px;
-}
-
-/* FORM */
-form {
-  display: flex;
-  flex-direction: column;
-}
-
-label {
-  margin-top: 10px;
-  margin-bottom: 5px;
-}
-
-input,
-textarea {
-  padding: 10px;
-  font-size: 16px;
-  border-radius: 8px;
+  margin: 10px 0;
+  padding: 12px;
+  border-radius: 10px;
   border: none;
   outline: none;
 }
 
 textarea {
-  min-height: 100px;
+  resize: none;
+  height: 100px;
 }
 
-/* BOTÓN */
 button {
-  margin-top: 15px;
+  width: 100%;
   padding: 12px;
   border-radius: 20px;
   border: none;
-  background: #0ff;
+  background: #00f5ff;
   font-weight: bold;
   cursor: pointer;
 }
 
-/* ERROR */
 .error {
-  border: 2px solid red !important;
+  border: 2px solid red;
 }
 
-/* SHAKE */
 .shake {
-  animation: shake .4s;
+  animation: shake 0.4s;
 }
+
 @keyframes shake {
-  0%{transform:translateX(0)}
-  25%{transform:translateX(-6px)}
-  50%{transform:translateX(6px)}
-  75%{transform:translateX(-6px)}
-  100%{transform:translateX(0)}
+  0% {transform: translateX(0);}
+  25% {transform: translateX(-5px);}
+  50% {transform: translateX(5px);}
+  75% {transform: translateX(-5px);}
+  100% {transform: translateX(0);}
 }
 
 /* TOAST */
 .toast {
   position: fixed;
-  bottom: 20px;
-  right: 20px;
-  padding: 12px 18px;
-  border-radius: 15px;
-  font-weight: bold;
-}
-
-.toast.ok {
-  background: #00f5ff;
-  color: #000;
-}
-
-.toast.error {
-  background: #ff3b3b;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%) translateY(20px);
+  background: #000;
   color: #fff;
+  padding: 10px 20px;
+  border-radius: 20px;
+  opacity: 0;
+  transition: 0.3s;
 }
+
+.toast.show {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+.toast.ok { border: 2px solid #00ff9d; }
+.toast.error { border: 2px solid red; }
