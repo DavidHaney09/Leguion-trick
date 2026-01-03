@@ -2,40 +2,26 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Contacto | David Haney</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contacto</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<a href="index.html" class="btn-inicio">🏠 Inicio</a>
+<a href="#" class="btn-inicio">🏠 Inicio</a>
 
-<div class="contacto-box anim-entrada">
+<div class="contacto-box">
+  <h2>📩 Contáctame</h2>
 
-  <h1>Contacto</h1>
-  <p class="aviso">Mensajes serios y profesionales</p>
-
-  <form action="https://formsubmit.co/davidhaney0787@gmail.com" method="POST">
-
-    <!-- FormSubmit -->
-    <input type="hidden" name="_captcha" value="false">
-    <input type="hidden" name="_subject" value="Nuevo mensaje desde tu web">
-
-    <label>Nombre</label>
+  <!-- FORMULARIO -->
+  <form action="https://formspree.io/f/xeqynvzg" method="POST">
     <input type="text" name="nombre" placeholder="Tu nombre" required>
 
-    <label>Correo</label>
-    <input type="email" name="email" placeholder="correo@ejemplo.com" required>
+    <input type="email" name="email" placeholder="Tu correo" required>
 
-    <label>Asunto</label>
-    <input type="text" name="asunto" placeholder="Motivo" required>
-
-    <label>Mensaje</label>
     <textarea name="mensaje" placeholder="Escribe tu mensaje..." required></textarea>
 
-    <button type="submit">Enviar mensaje</button>
+    <button type="submit">Enviar</button>
   </form>
-
 </div>
 
 <script src="script.js"></script>
