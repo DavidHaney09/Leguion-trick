@@ -23,7 +23,7 @@ form.addEventListener("submit", e => {
     if (!campo.value.trim()) {
       campo.classList.add("error");
       ok = false;
-      setTimeout(()=>campo.classList.remove("error"),600);
+      setTimeout(() => campo.classList.remove("error"), 600);
     }
   });
 
@@ -46,12 +46,11 @@ function toast(msg, tipo) {
   t.className = `toast ${tipo}`;
   t.textContent = msg;
   document.body.appendChild(t);
-  setTimeout(()=>t.classList.add("show"),100);
-  setTimeout(()=>t.remove(),3000);
+  setTimeout(() => t.remove(), 3000);
 }
 
 // SHAKE
 function sacudir(el) {
   el.classList.add("shake");
-  setTimeout(()=>el.classList.remove("shake"),400);
+  setTimeout(() => el.classList.remove("shake"), 400);
 }
