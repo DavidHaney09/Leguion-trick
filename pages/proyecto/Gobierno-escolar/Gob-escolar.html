@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Página Institucional | Leguion Trick</title>
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  <style>
+    /* ====== FONDO GRADIENTE ====== */
+    body {
+      background: linear-gradient(135deg, #c8b6ff, #87cefa); /* morado claro y azul claro */
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
+      color: #1a1a3f;
+      scroll-behavior: smooth;
+      overflow-x: hidden;
+    }
+
+    /* ====== BOTON INICIO ====== */
+    .btn-inicio {
+      display: inline-block;
+      margin: 15px;
+      padding: 0.6rem 1.2rem;
+      background: linear-gradient(45deg, #9370db, #87cefa); /* morado-azul */
+      color: #fff;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: bold;
+      font-size: 1rem;
+      transition: 0.3s;
+    }
+    .btn-inicio:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 15px #9370db, 0 0 15px #87cefa;
+    }
+
+    /* ====== MENU BOTONES ARRIBA ====== */
+    .menu-secciones {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      padding: 15px;
+      flex-wrap: wrap;
+      background: linear-gradient(45deg, #9370db, #87cefa);
+    }
+    .menu-secciones a {
+      text-decoration: none;
+      color: #fff;
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      font-weight: bold;
+      font-size: 0.9rem;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: 0.3s;
+    }
+    .menu-secciones a:hover {
+      transform: scale(1.05) rotate(-2deg);
+      box-shadow: 0 0 10px #fff;
+    }
+
+    /* ====== SECCIONES ====== */
+    section {
+      padding: 4rem 1rem;
+      max-width: 900px;
+      margin: 0 auto;
+      opacity: 0;
+      transform: translateY(40px);
+      animation: fadeSlideBounce 1s forwards;
+    }
+    section:nth-child(1) { animation-delay: 0.2s; }
+    section:nth-child(2) { animation-delay: 0.4s; }
+    section:nth-child(3) { animation-delay: 0.6s; }
+    section:nth-child(4) { animation-delay: 0.8s; }
+    section:nth-child(5) { animation-delay: 1s; }
+
+    section h2 {
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
+      background: linear-gradient(90deg, #9370db, #87cefa);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      animation: textBounce 1s ease forwards;
+    }
+
+    section p {
+      font-size: 1rem;
+      line-height: 1.6;
+      color: #2e2e5f;
+      opacity: 0;
+      animation: textFade 1s ease forwards;
+      animation-delay: 0.5s;
+    }
+
+    @keyframes fadeSlideBounce {
+      0% { opacity: 0; transform: translateY(40px); }
+      60% { opacity: 1; transform: translateY(-10px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes textBounce {
+      0% { transform: translateY(-20px); opacity: 0; }
+      60% { transform: translateY(10px); opacity: 1; }
+      100% { transform: translateY(0); opacity: 1; }
+    }
+
+    @keyframes textFade {
+      0% { opacity: 0; }
+      100% { opacity: 1; }
+    }
+
+    /* ====== IMAGEN TIPO ANUNCIO ====== */
+    .imagen-anuncio {
+      position: fixed;
+      top: 50%; 
+      right: 10px;
+      width: 220px; /* más pequeña */
+      max-width: 90%;
+      border-radius: 15px;
+      overflow: hidden;
+      background: linear-gradient(135deg, #9370db, #87cefa);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+      z-index: 9999;
+      transform: translateY(-50%);
+      transition: transform 0.3s;
+      animation: anuncioPop 1s ease-out forwards;
+    }
+
+    .imagen-anuncio img {
+      width: 100%;
+      display: block;
+      border-radius: 15px;
+      transition: transform 0.3s;
+    }
+    .imagen-anuncio:hover img {
+      transform: scale(1.05);
+    }
+
+    .imagen-anuncio .cerrar {
+      position: absolute;
+      top: 5px;
+      right: 10px;
+      color: #fff;
+      font-size: 1.2em;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    .imagen-anuncio .texto-anuncio {
+      padding: 8px;
+      color: #fff;
+      font-weight: bold;
+      text-align: center;
+      font-size: 0.9rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 4px;
+    }
+
+    @keyframes anuncioPop {
+      0% { transform: scale(0.5) translateY(-50%); opacity: 0;}
+      60% { transform: scale(1.1) translateY(-50%); opacity: 1;}
+      100% { transform: scale(1) translateY(-50%);}
+    }
+
+    /* ====== FOOTER ====== */
+    footer {
+      text-align: center;
+      padding: 1.2rem 0;
+      background-color: #c0c0ff;
+      color: #1a1a3f;
+      font-size: 0.85rem;
+      margin-top: 2rem;
+      border-top: 2px solid #9370db;
+    }
+
+    /* ====== RESPONSIVE ====== */
+    @media (max-width: 768px) {
+      .menu-secciones {
+        flex-direction: column;
+        gap: 8px;
+      }
+      .imagen-anuncio {
+        width: 180px;
+        right: 5px;
+      }
+    }
+
+  </style>
+</head>
+<body>
+
+<a href="https://davidhaney09.github.io/Leguion-trick/" class="btn-inicio"><i class="fas fa-home"></i> Inicio</a>
+
+<div class="menu-secciones">
+  <a href="#quien-soy"><i class="fas fa-user"></i> Quien Soy</a>
+  <a href="#que-quiero-lograr"><i class="fas fa-bullseye"></i> Qué Quiero Lograr</a>
+  <a href="#mis-objetivos"><i class="fas fa-tasks"></i> Mis Objetivos</a>
+  <a href="#mis-metas"><i class="fas fa-flag"></i> Mis Metas</a>
+  <a href="#propuestas"><i class="fas fa-lightbulb"></i> Propuestas</a>
+</div>
+
+<section id="quien-soy">
+  <h2><i class="fas fa-user"></i> Quien Soy</h2>
+  <p>Hola, soy David Haney, apasionado por la tecnología y la innovación. Soy un estudante del colegio ####### ###### #### ## ### ##### lo sensuro porque nc si me den permiso de poder colocar el nombre en mi pagina pero pues solo soy un estudiante como todos que llega todos los dias a la isntitucion sin peros alguno soy uno de los que mas a mirado que cosas le faltan al colegio, que cosas le falta por alansar o mejorar y tengo muchas ideas para Inicio de mi capitulo.</p>
+</section>
+
+<section id="que-quiero-lograr">
+  <h2><i class="fas fa-bullseye"></i> Qué Quiero Lograr</h2>
+  <p>Mi misión en nuestra institución es clara: quiero ser el personero, pero no solo para ocupar un cargo, sino para ser la voz de todos ustedes, para que cada idea, cada preocupación y cada sueño de los estudiantes sea escuchado y tomado en cuenta. Quiero demostrar que sí existen líderes comprometidos y confiables, que cumplen sus palabras y que trabajan de verdad por el bienestar de todos.</p>
+
+<p> todos los que se lanzan al gobierno escolar buscan solo subir y recibir beneficios. Yo quiero hacer historia, dejar huella y lograr un cambio real y radical en nuestro colegio. Quiero transformar nuestra experiencia educativa, fortalecer la unión entre los estudiantes y asegurar que cada voz tenga un espacio, porque todos merecemos ser escuchados.</p>
+
+<p>Pero esto no lo puedo lograr solo. Necesitaré de su apoyo, de su confianza y de su participación activa. Juntos podemos demostrar que cuando los líderes cumplen, las ideas se concretan, los proyectos se realizan y nuestra institución crece. Su apoyo será mi fuerza, y nuestra unión, el motor del cambio que todos queremos ver.</p>
+
+<p> me dan la oportunidad, no solo representaremos a los estudiantes: seremos ejemplo de liderazgo, compromiso y acción. ¡Hagamos que nuestro colegio sea un lugar donde cada estudiante sienta orgullo de pertenecer!.</p>
+</section>
+
+<section id="mis-objetivos">
+  <h2><i class="fas fa-tasks"></i> Mis Objetivos</h2>
+  <p>Ser la voz de los estudiantes: Escuchar sus ideas, preocupaciones y propuestas para que sean tomadas en cuenta en todas las decisiones del colegio.
+
+<p>Fomentar la confianza en el liderazgo estudiantil: Demostrar que los líderes cumplen sus palabras y trabajan de verdad por el bienestar de todos.</p>
+
+<p>Impulsar cambios positivos en la institución: Mejorar el ambiente escolar, promover proyectos útiles y generar iniciativas que beneficien a toda la comunidad educativa.</p>
+
+<p>Fortalecer la unión entre estudiantes: Crear espacios de colaboración, respeto y participación para que todos nos sintamos parte del colegio.</p>
+
+<p>Dejar huella y generar impacto: Que cada acción que realicemos sea recordada y marque la diferencia en nuestra institución.</p>
+
+<p>Promover la participación activa: Motivar a todos los estudiantes a involucrarse, opinar y ser protagonistas de las decisiones que afectan su día a día.</p>
+</section>
+
+<section id="mis-metas">
+  <h2><i class="fas fa-flag"></i> Mis Metas</h2>
+  <p>1. Seguridad dentro del colegio: Garantizar un ambiente seguro para todos los estudiantes, donde se respeten las normas y se prevengan situaciones de riesgo.</p>
+<p>2. Protección de los derechos y privacidad: Asegurar que la información personal de los estudiantes sea respetada y que todos tengan derecho a expresarse sin miedo.</p>
+<p>3. Transparencia en la gestión estudiantil: Que cada acción del gobierno escolar sea clara y conocida por todos, evitando malentendidos y fomentando la confianza.</p>
+<p>4. Promoción del respeto y la convivencia: Crear campañas y actividades que refuercen la empatía, la solidaridad y la buena relación entre compañeros.</p>
+<p>5. Fortalecer la participación estudiantil: Que todos los estudiantes tengan voz y voto en decisiones importantes, generando un colegio más democrático e inclusivo.</p>
+<p>6. Innovación y mejora continua: Implementar ideas y proyectos que hagan del colegio un lugar más moderno, organizado y agradable para todos.</p>
+<p>7. Cuidado del medio ambiente en la institución: Promover el reciclaje, el ahorro de recursos y la limpieza en todas las áreas del colegio.</p>
+<p>8. Apoyo al bienestar emocional de los estudiantes: Crear espacios de escucha, orientación y acompañamiento para quienes lo necesiten.</p>
+<p>9. Fomento del talento y la creatividad: Impulsar actividades culturales, deportivas y artísticas donde todos los estudiantes puedan mostrar sus habilidades.</p>
+<p>10. Desarrollo de habilidades de liderazgo: Motivar a los estudiantes a ser proactivos, responsables y comprometidos con la comunidad educativa.</p>
+
+</section>
+
+<section id="propuestas">
+  <h2><i class="fas fa-lightbulb"></i> Propuestas</h2>
+  <p>1. Reubicación de los brilladores de tractomulas: Quiero moverlos a una zona más alejada de la institución, ya que el ruido y el comportamiento no son adecuados, especialmente considerando la gran cantidad de estudiantes que somos. Esto permitirá un ambiente más tranquilo y seguro para todos.</p>
+<p>2. Mayor visibilidad de los policías: Hacer que los policías sean más visibles dentro de la institución para prevenir peleas, accidentes o situaciones de riesgo, garantizando la seguridad de todos.</p>
+<p>3. Arreglo de aguas estancadas: Exigir el arreglo de zonas donde se acumula agua, especialmente en áreas más transitadas por los estudiantes, para prevenir accidentes, infecciones o criaderos de mosquitos.</p>
+<p>4. Alcantarillados urgentes: Solicitar el arreglo inmediato de los alcantarillados visibles por la institución, ya que los daños actuales generan malos olores y un ambiente insalubre.</p>
+<p>5. Zona para dejar escritorios dañados: Crear un espacio donde se puedan depositar los escritorios que ya no sirven, bajo supervisión del coordinador, evitando que ocupen salones de estudio y manteniendo el orden en la institución.</p>
+<p>6. Protección de la integridad emocional: Toda palabra o acción que dañe la integridad emocional de los estudiantes será sancionable. Queremos fomentar un ambiente de respeto y apoyo, evitando burlas o agresiones verbales.</p>
+<p>7. Vidrios rotos en los salones: Reparar los vidrios dañados en los salones, evitando riesgos para los estudiantes curiosos o que puedan lastimarse accidentalmente.</p>
+<p>8. Prevención del bullying: Cualquier estudiante que haga bullying hacia otro será sancionado, garantizando un ambiente seguro y respetuoso para todos.</p>
+<p>9. Seguridad en las escaleras del parque de las técnicas: Revisar y corregir las escaleras altas y de tierra, que son muy inseguras, para prevenir accidentes y mejorar el drenaje de las alcantarillas bajas.</p>
+<p>10. Protección de las zonas verdes: Colocar pequeños muros en algunas zonas verdes elevadas para evitar que los caminos se llenen de tierra y lodo, cuidando que no se acumulen basuras y preservando estas áreas.</p>
+<p>11. Seguridad interna de la institución: Cambiar las cercas oxidadas o dañadas que representan un riesgo y reforzar las que están en mal estado, garantizando que los estudiantes no puedan salir sin autorización.</p>
+<p>12. Portón principal y zonas de basura: Solicitar la instalación de un letrero de multa para prevenir que se tire basura en la zona escolar, manteniendo el lugar limpio y respetando su función educativa.</p>
+<p>13. Control de perros en la institución: Exigir que se retiren los perros que ingresan a la cafetería y se les entregue a personal de perreras para su cuidado adecuado, evitando accidentes y mejorando la higiene.</p>
+<p>14. Postes peligrosos: Solicitar la revisión, reparación o reemplazo de postes viejos que sueltan energía o representan riesgo para los estudiantes, previniendo accidentes.</p>
+<p>15. Protección de zonas verdes en los primeros pisos: Colocar cercas en áreas verdes afectadas por el tránsito de estudiantes, para permitir que crezcan y se conserven adecuadamente.</p>
+<p>16. Revisión de goteras y filtraciones: Exigir inspección y arreglo de filtraciones o chorros de agua internos en los salones, garantizando condiciones adecuadas para docentes y estudiantes y evitando incomodidades durante las clases.</p>
+
+</section>
+
+<div class="imagen-anuncio" id="anuncio">
+  <span class="cerrar" onclick="document.getElementById('anuncio').style.display='none';">&times;</span>
+  <img src="gobierno-escolar.png" alt="Anuncio Institucional">
+  <div class="texto-anuncio"><i class="fas fa-star"></i> ¡Proyecto Destacado!</div>
+</div>
+
+<footer>
+  © Derechos de autor — David Haney
+</footer>
+
+</body>
+</html>
