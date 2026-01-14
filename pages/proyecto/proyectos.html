@@ -189,10 +189,11 @@
   document.querySelectorAll('.proyecto').forEach(proy => {
     const emoji = proy.querySelector('.estado').textContent.trim();
     if (emoji === '✅') proy.classList.add('hecho');
-    else if (emoji === '❌') proy.classList.add('no-hecho');
-    else if (emoji === '⚙️') proy.classList.add('en-proceso');
+    if (emoji === '❌') proy.classList.add('no-hecho');
+    if (emoji === '⚙️') proy.classList.add('en-proceso');
   });
 </script>
 
 </body>
 </html>
+
