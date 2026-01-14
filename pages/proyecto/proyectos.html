@@ -1,166 +1,198 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <title>Proyectos | Leguion Trick</title>
-  <link rel="stylesheet" href="style.css">
-  <style>
-    /* ====== ESTILOS GENERALES ====== */
-    body {
-      background-color: #0d0d20;
-      color: #fff;
-      font-family: 'Arial', sans-serif;
-      margin: 0;
-      padding: 0;
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Proyectos | Leguion Trick</title>
+<style>
+  /* ====== ESTILOS GENERALES ====== */
+  body {
+    background-color: #0d0d20;
+    color: #fff;
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+  }
 
-    /* ====== BOTON INICIO ====== */
-    .btn-inicio {
-      display: inline-block;
-      margin: 20px;
-      padding: 10px 20px;
-      background: linear-gradient(45deg, #6a0dad, #1e90ff);
-      color: #fff;
-      text-decoration: none;
-      border-radius: 8px;
-      font-weight: bold;
-      transition: 0.3s;
-    }
-    .btn-inicio:hover {
-      transform: scale(1.05);
-      box-shadow: 0 0 15px #6a0dad, 0 0 15px #1e90ff;
-    }
+  .btn-inicio {
+    display: inline-block;
+    margin: 20px;
+    padding: 10px 20px;
+    background: linear-gradient(45deg, #6a0dad, #1e90ff);
+    color: #fff;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: bold;
+    transition: 0.3s;
+  }
+  .btn-inicio:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 15px #6a0dad, 0 0 15px #1e90ff;
+  }
 
-    /* ====== TITULO ====== */
-    h1 {
-      text-align: center;
-      margin-top: 40px;
-      margin-bottom: 40px;
-      font-size: 2.5em;
-      background: linear-gradient(90deg, #6a0dad, #1e90ff);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
+  h1 {
+    text-align: center;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    font-size: 2.5em;
+    background: linear-gradient(90deg, #6a0dad, #1e90ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
 
-    /* ====== GRID DE PROYECTOS ====== */
+  .proyectos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 0 20px 40px 20px;
+  }
+
+  .proyecto {
+    position: relative;
+    background: linear-gradient(135deg, #1e1e3f, #2e2e5f);
+    border-radius: 12px;
+    overflow: hidden;
+    text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s, background-color 0.3s;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .proyecto:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 0 20px #6a0dad, 0 0 20px #1e90ff;
+  }
+
+  .proyecto img {
+    width: 100%;
+    height: 180px; /* un poco más alto */
+    object-fit: cover;
+    transition: transform 0.3s;
+  }
+  .proyecto:hover img {
+    transform: scale(1.1);
+  }
+
+  .proyecto h3 {
+    margin: 10px 0;
+    color: #b19cd9;
+  }
+
+  .proyecto p {
+    padding: 0 10px 10px 10px;
+    font-size: 0.95em;
+    color: #ccc;
+  }
+
+  .btn-proyecto {
+    margin: 10px;
+    padding: 8px 16px;
+    background: linear-gradient(45deg, #6a0dad, #1e90ff);
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    text-decoration: none;
+    transition: 0.3s;
+  }
+  .btn-proyecto:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 10px #6a0dad, 0 0 10px #1e90ff;
+  }
+
+  /* ====== EMOJI DE ESTADO ====== */
+  .estado {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    font-size: 1.5em;
+    padding: 4px 6px;
+    border-radius: 50%;
+    color: #fff;
+  }
+
+  /* Colores de fondo según estado */
+  .hecho .estado { background-color: #2e7d32; }       /* Verde */
+  .no-hecho .estado { background-color: #c62828; }    /* Rojo */
+  .en-proceso .estado { background-color: #0288d1; }  /* Azul celeste */
+
+  /* FOOTER */
+  footer {
+    text-align: center;
+    padding: 20px 0;
+    background-color: #0a0a1a;
+    color: #888;
+    font-size: 0.9em;
+  }
+
+  @media (max-width: 600px) {
     .proyectos-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-      gap: 20px;
-      padding: 0 40px 40px 40px;
+      grid-template-columns: 1fr;
+      padding: 0 10px 20px 10px;
     }
-
-    .proyecto {
-      background: linear-gradient(135deg, #1e1e3f, #2e2e5f);
-      border-radius: 12px;
-      overflow: hidden;
-      text-align: center;
-      transition: transform 0.3s, box-shadow 0.3s;
-      cursor: pointer;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-    }
-    .proyecto:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 0 20px #6a0dad, 0 0 20px #1e90ff;
-    }
-
-    .proyecto img {
-      width: 100%;
-      height: 150px;
-      object-fit: cover;
-      transition: transform 0.3s;
-    }
-    .proyecto:hover img {
-      transform: scale(1.1);
-    }
-
-    .proyecto h3 {
-      margin: 10px 0;
-      color: #b19cd9;
-    }
-
-    .proyecto p {
-      padding: 0 10px 10px 10px;
-      font-size: 0.9em;
-      color: #ccc;
-    }
-
-    /* ====== BOTONES DE PROYECTO ====== */
-    .btn-proyecto {
-      margin: 10px;
-      padding: 8px 16px;
-      background: linear-gradient(45deg, #6a0dad, #1e90ff);
-      color: #fff;
-      border: none;
-      border-radius: 6px;
-      cursor: pointer;
-      font-weight: bold;
-      text-decoration: none;
-      transition: 0.3s;
-    }
-    .btn-proyecto:hover {
-      transform: scale(1.05);
-      box-shadow: 0 0 10px #6a0dad, 0 0 10px #1e90ff;
-    }
-
-    /* ====== FOOTER ====== */
-    footer {
-      text-align: center;
-      padding: 20px 0;
-      background-color: #0a0a1a;
-      color: #888;
-      font-size: 0.9em;
-      margin-top: 40px;
-    }
-  </style>
+  }
+</style>
 </head>
 <body>
 
-<a href="https://davidhaney09.github.io/Leguion-trick/" class="btn-inicio">🝠 Inicio</a>
+<a href="https://davidhaney09.github.io/Leguion-trick/" class="btn-inicio">🏠 Inicio</a>
 
-<h1>🛠 Mis Proyectos</h1>
+<h1>🚀 Mis Proyectos</h1>
 
 <div class="proyectos-grid">
   <!-- Proyecto 1 -->
-  <div class="proyecto">
+  <div class="proyecto hecho">
+    <span class="estado">⚙️</span>
     <img src="Gobierno-escolar/gobierno-escolar.png" alt="Proyecto 1">
     <h3>Bachillerato 11</h3>
-    <p>Mision para dejar huellas antes de salir estudiar.</p>
+    <p>Misión para dejar huellas antes de salir estudiar.</p>
     <a href="Gobierno-escolar/Gob-escolar.html" class="btn-proyecto" target="_blank">Ver Proyecto</a>
   </div>
 
   <!-- Proyecto 2 -->
-  <div class="proyecto">
-    <img src="https://via.placeholder.com/300x150" alt="Proyecto 2">
+  <div class="proyecto no-hecho">
+    <span class="estado">❌</span>
+    <img src="https://via.placeholder.com/300x180" alt="Proyecto 2">
     <h3>Proyecto 2</h3>
     <p>Descripción corta de mi proyecto.</p>
     <a href="https://ejemplo.com/proyecto2" class="btn-proyecto" target="_blank">Ver Proyecto</a>
   </div>
 
   <!-- Proyecto 3 -->
-  <div class="proyecto">
-    <img src="https://via.placeholder.com/300x150" alt="Proyecto 3">
+  <div class="proyecto en-proceso">
+    <span class="estado">❌</span>
+    <img src="https://via.placeholder.com/300x180" alt="Proyecto 3">
     <h3>Proyecto 3</h3>
     <p>Descripción corta de mi proyecto.</p>
     <a href="https://ejemplo.com/proyecto3" class="btn-proyecto" target="_blank">Ver Proyecto</a>
   </div>
 
   <!-- Proyecto 4 -->
-  <div class="proyecto">
-    <img src="https://via.placeholder.com/300x150" alt="Proyecto 4">
+  <div class="proyecto en-proceso">
+    <span class="estado">❌</span>
+    <img src="https://via.placeholder.com/300x180" alt="Proyecto 4">
     <h3>Proyecto 4</h3>
     <p>Descripción corta de mi proyecto.</p>
     <a href="https://ejemplo.com/proyecto4" class="btn-proyecto" target="_blank">Ver Proyecto</a>
   </div>
-
-  <!-- Agrega más proyectos y se acomodarán automáticamente -->
 </div>
 
 <footer>
   © Derechos de autor — David Haney
 </footer>
+
+<script>
+  // Asegura que la clase de color se aplique según emoji
+  document.querySelectorAll('.proyecto').forEach(proy => {
+    const emoji = proy.querySelector('.estado').textContent.trim();
+    if (emoji === '✅') proy.classList.add('hecho');
+    else if (emoji === '❌') proy.classList.add('no-hecho');
+    else if (emoji === '⚙️') proy.classList.add('en-proceso');
+  });
+</script>
 
 </body>
 </html>
