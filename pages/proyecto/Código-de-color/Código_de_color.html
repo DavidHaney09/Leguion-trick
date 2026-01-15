@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Paleta de Colores | Leguion Trick</title>
+
+<style>
+body{
+  margin:0;
+  font-family: Arial, sans-serif;
+  background: radial-gradient(circle at top,#1b0036,#020214);
+  color:white;
+}
+
+header{
+  text-align:center;
+  padding:30px;
+}
+
+header h1{
+  font-size:2.5em;
+  background:linear-gradient(90deg,#8a2be2,#00bfff);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
+
+.btn-inicio{
+  display:inline-block;
+  margin-top:15px;
+  padding:10px 20px;
+  background:linear-gradient(45deg,#8a2be2,#00bfff);
+  color:white;
+  text-decoration:none;
+  border-radius:8px;
+  font-weight:bold;
+  box-shadow:0 0 15px rgba(138,43,226,.7);
+  transition:.3s;
+}
+.btn-inicio:hover{
+  transform:scale(1.1);
+  box-shadow:0 0 25px #00bfff;
+}
+
+.paleta{
+  max-width:900px;
+  margin:40px auto;
+  padding:20px;
+}
+
+.preview{
+  height:200px;
+  border-radius:12px;
+  background:#0000ff;
+  box-shadow:0 0 40px rgba(0,0,255,.8);
+  transition:.4s;
+}
+
+input[type="color"]{
+  width:100%;
+  height:60px;
+  border:none;
+  margin:20px 0;
+  cursor:pointer;
+  background:none;
+}
+
+.valores{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+  gap:15px;
+}
+
+.valor{
+  background:linear-gradient(135deg,#2a004a,#001a3a);
+  padding:15px;
+  border-radius:10px;
+  text-align:center;
+  box-shadow:0 0 15px rgba(0,191,255,.3);
+}
+
+.valor span{
+  display:block;
+  margin-top:8px;
+  font-size:1.2em;
+  color:#00bfff;
+}
+
+footer{
+  text-align:center;
+  padding:20px;
+  background:#050010;
+  color:#aaa;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <h1>🎨 Paleta de Colores</h1>
+  <a class="btn-inicio" href="https://davidhaney09.github.io/Leguion-trick/">🏠 Volver al Inicio</a>
+</header>
+
+<div class="paleta">
+
+  <div id="preview" class="preview"></div>
+
+  <input type="color" id="color" value="#0000ff">
+
+  <div class="valores">
+    <div class="valor">HEX <span id="hex">#0000ff</span></div>
+    <div class="valor">RGB <span id="rgb">0, 0, 255</span></div>
+    <div class="valor">HSL <span id="hsl">240, 100%, 50%</span></div>
+  </div>
+
+</div>
+
+<footer>
+  © Derechos de autor — David Haney
+</footer>
+
+<script>
+const color = document.getElementById("color");
+const preview = document.getElementById("preview");
+const hex = document.getElementById("hex");
+const rgb = document.getElementById("rgb");
+const hsl = document.getElementById("hsl");
+
+function hexToRgb(hex){
+  let r = parseInt(hex.substr(1,2),16);
+  let g = parseInt(hex.substr(3,2),16);
+  let b = parseInt(hex.substr(5,2),16);
+  return {r,g,b};
+}
+
+function rgbToHsl(r,g,b){
+  r/=255; g/=255; b/=255;
+  let max=Math.max(r,g,b), min=Math.min(r,g,b);
+  let h,s,l=(max+min)/2;
+
+  if(max==min){h=s=0;}
+  else{
+    let d=max-min;
+    s=l>0.5?d/(2-max-min):d/(max+min);
+    switch(max){
+      case r:h=(g-b)/d+(g<b?6:0);break;
+      case g:h=(b-r)/d+2;break;
+      case b:h=(r-g)/d+4;break;
+    }
+    h/=6;
+  }
+  return {
+    h:Math.round(h*360),
+    s:Math.round(s*100),
+    l:Math.round(l*100)
+  };
+}
+
+color.addEventListener("input",()=>{
+  const val=color.value;
+  preview.style.background=val;
+  preview.style.boxShadow="0 0 40px "+val;
+  hex.textContent=val;
+
+  const {r,g,b}=hexToRgb(val);
+  rgb.textContent=`${r}, ${g}, ${b}`;
+
+  const hslVal=rgbToHsl(r,g,b);
+  hsl.textContent=`${hslVal.h}, ${hslVal.s}%, ${hslVal.l}%`;
+});
+</script>
+
+</body>
+</html>
