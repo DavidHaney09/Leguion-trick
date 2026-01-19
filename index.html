@@ -2,28 +2,30 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
   <title>David Haney | Web</title>
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
+
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-  <!-- Fondo -->
+  <!-- Fondo animado -->
   <div class="fondo"></div>
 
-  <!-- Header -->
+  <!-- HEADER -->
   <header class="header">
-    <img src="IMG/logo.png" class="logo" alt="logo izquierda">
-    <h1 class="titulo">MI PAGINA WEB</h1>
-    <img src="IMG/logo.png" class="logo" alt="logo derecha">
+    <img src="IMG/logo.png" class="logo" alt="logo">
+    <h1 class="titulo">MI PÁGINA WEB</h1>
+    <img src="IMG/logo.png" class="logo" alt="logo">
   </header>
 
-  <!-- Contenido -->
+  <!-- CONTENIDO -->
   <main class="contenedor">
 
-    <!-- Botonera -->
+    <!-- BOTONERA -->
     <aside class="botonera">
       <button onclick="irA('index.html')">Inicio</button>
       <button onclick="irA('pages/proyecto/proyectos.html')">Proyectos</button>
@@ -34,49 +36,39 @@
       <button onclick="irA('pages/contacto/contac.html')">Contacto</button>
     </aside>
 
-    <!-- Descripción -->
+    <!-- DESCRIPCIÓN -->
     <section class="descripcion">
       <h2>Bienvenido 👋</h2>
       <p>
-        Esta es mi página web personal creada desde cero con HTML, CSS y JavaScript.
-        Aquí comparto contenido relacionado con mi canal de YouTube, tecnología,
-        programación y aprendizaje.
+        Esta es mi página web personal creada desde cero con
+        <strong>HTML, CSS y JavaScript</strong>.
         <br><br>
-        La idea es ayudar, enseñar y crecer juntos en este mundo digital.
+        Aquí comparto tecnología, programación, proyectos
+        y contenido de mi canal de YouTube.
         <br><br>
-        Página creada por <strong>David Haney</strong> 💜💙
+        🚀 Aprender, enseñar y crecer juntos en el mundo digital.
       </p>
+      <span class="firma">— David Haney 💜💙</span>
     </section>
 
-    <!-- Carrusel -->
+    <!-- CARRUSEL -->
     <section class="carrusel">
-      <img id="carrusel-img" src="https://picsum.photos/700/400?1" alt="carrusel">
+      <img id="carrusel-img" src="https://picsum.photos/800/400?random=1" alt="carrusel">
     </section>
 
   </main>
 
-  <!-- Footer -->
+  <!-- FOOTER -->
   <footer class="footer">
     <div class="redes">
       <button>Facebook</button>
       <button>TikTok</button>
-       <button onclick="irA('https://www.youtube.com/@DavidHaney-w1b')">YOUTUBE</button>
+      <button onclick="irA('https://www.youtube.com/@DavidHaney-w1b')">YouTube</button>
       <button>X</button>
     </div>
-    <p>&copy; Derechos de autor — David Haney</p>
+    <p>© 2026 — David Haney</p>
   </footer>
-
-  <!-- Audio -->
-  <audio id="audio-player"></audio>
 
   <script src="script.js"></script>
 </body>
 </html>
-
-
-
-
-
-
-
-
