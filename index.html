@@ -10,7 +10,7 @@
   margin:0;
   padding:0;
   box-sizing:border-box;
-  font-family: 'Segoe UI', sans-serif;
+  font-family:'Segoe UI',sans-serif;
 }
 
 body{
@@ -64,7 +64,7 @@ body{
 /* ===== CONTENIDO ===== */
 .contenido{
   padding:20px;
-  overflow-y:auto; /* 🔥 FIX CLAVE PARA PC */
+  overflow-y:auto;
 }
 
 .contenido-inner{
@@ -86,9 +86,8 @@ body{
 
 .contenido p{
   font-size:1.1rem;
-  opacity:.95;
-  margin-bottom:25px;
   line-height:1.6;
+  opacity:.95;
 }
 
 /* ===== CARRUSEL ===== */
@@ -123,12 +122,23 @@ body{
   bottom:20px;
   right:20px;
   background:linear-gradient(135deg,#f72585,#b5179e);
-  padding:15px 20px;
+  padding:12px;
   border-radius:20px;
   box-shadow:0 0 30px rgba(0,0,0,.5);
   animation:flotar 3s ease-in-out infinite;
   z-index:9999;
   max-width:260px;
+}
+
+.anuncio img{
+  width:100%;
+  border-radius:14px;
+  margin-bottom:8px;
+}
+
+.anuncio-texto{
+  font-size:.95rem;
+  text-align:center;
 }
 
 @keyframes flotar{
@@ -231,12 +241,16 @@ body{
 
 <!-- ANUNCIO -->
 <div class="anuncio">
-  🔥 PROYECTO SECRETO 🔥<br>
-  Se acerca algo grande…
+  <img src="https://picsum.photos/300/180?random=7" alt="Anuncio">
+  <div class="anuncio-texto">
+    <strong>🔥 PROYECTO SECRETO 🔥</strong><br>
+    Se acerca algo grande…<br>
+    Muy pronto 👀
+  </div>
 </div>
 
 <script>
-/* Carrusel */
+/* Carrusel principal */
 let index=0;
 const imgs=document.querySelectorAll('.carrusel img');
 
@@ -250,6 +264,21 @@ setInterval(()=>{
 function irA(url){
   window.location.href = url;
 }
+
+/* Rotar imagen del anuncio */
+const ads=[
+ "https://picsum.photos/300/180?random=1",
+ "https://picsum.photos/300/180?random=2",
+ "https://picsum.photos/300/180?random=3"
+];
+
+let adIndex=0;
+const adImg=document.querySelector('.anuncio img');
+
+setInterval(()=>{
+  adIndex=(adIndex+1)%ads.length;
+  adImg.src=ads[adIndex];
+},5000);
 </script>
 
 </body>
