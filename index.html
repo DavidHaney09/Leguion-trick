@@ -5,68 +5,62 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>David Haney | Web</title>
 
-  <!-- Google Font -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
-
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-  <!-- Fondo animado -->
+  <!-- FONDO -->
   <div class="fondo"></div>
 
   <!-- HEADER -->
   <header class="header">
-    <img src="IMG/logo.png" class="logo" alt="logo">
-    <h1 class="titulo">MI PÁGINA WEB</h1>
-    <img src="IMG/logo.png" class="logo" alt="logo">
+    <h1>⚡ DAVID HANEY ⚡</h1>
   </header>
 
-  <!-- CONTENIDO -->
+  <!-- CONTENEDOR -->
   <main class="contenedor">
 
-    <!-- BOTONERA -->
+    <!-- BOTONERA DESLIZABLE -->
     <aside class="botonera">
-      <button onclick="irA('index.html')">Inicio</button>
-      <button onclick="irA('pages/proyecto/proyectos.html')">Proyectos</button>
-      <button onclick="irA('pages/galeria.html')">Galería</button>
-      <button onclick="irA('pages/tecnologia.html')">Tecnología</button>
-      <button onclick="irA('pages/programacion.html')">Programación</button>
-      <button onclick="irA('pages/juegos.html')">Juegos</button>
-      <button onclick="irA('pages/contacto/contac.html')">Contacto</button>
+      <h2>MENÚ</h2>
+
+      <div class="botones-scroll">
+        <button onclick="irA('index.html')">🏠 Inicio</button>
+        <button>🚀 Proyectos</button>
+        <button>🖼 Galería</button>
+        <button>💻 Tecnología</button>
+        <button>👨‍💻 Programación</button>
+        <button>🎮 Juegos</button>
+        <button>📡 Redes</button>
+        <button>🤖 IA</button>
+        <button>🛠 Herramientas</button>
+        <button>📁 Descargas</button>
+        <button>📞 Contacto</button>
+        <!-- AGREGA TODOS LOS QUE QUIERAS -->
+      </div>
     </aside>
 
-    <!-- DESCRIPCIÓN -->
-    <section class="descripcion">
-      <h2>Bienvenido 👋</h2>
+    <!-- CONTENIDO -->
+    <section class="contenido">
+      <h2>Bienvenido 👾</h2>
       <p>
-        Esta es mi página web personal creada desde cero con
-        <strong>HTML, CSS y JavaScript</strong>.
-        <br><br>
-        Aquí comparto tecnología, programación, proyectos
-        y contenido de mi canal de YouTube.
-        <br><br>
-        🚀 Aprender, enseñar y crecer juntos en el mundo digital.
+        Página web creada desde cero con HTML, CSS y JavaScript.<br><br>
+        Aquí se viene tecnología, hacking ético, programación,
+        proyectos locos y mucho estilo gamer.
       </p>
-      <span class="firma">— David Haney 💜💙</span>
-    </section>
 
-    <!-- CARRUSEL -->
-    <section class="carrusel">
-      <img id="carrusel-img" src="https://picsum.photos/800/400?random=1" alt="carrusel">
+      <!-- CARRUSEL -->
+      <div class="carrusel">
+        <img id="carrusel" src="https://picsum.photos/900/400?1">
+      </div>
     </section>
 
   </main>
 
   <!-- FOOTER -->
-  <footer class="footer">
-    <div class="redes">
-      <button>Facebook</button>
-      <button>TikTok</button>
-      <button onclick="irA('https://www.youtube.com/@DavidHaney-w1b')">YouTube</button>
-      <button>X</button>
-    </div>
-    <p>© 2026 — David Haney</p>
+  <footer>
+    <p>© David Haney — 2026</p>
   </footer>
 
   <script src="script.js"></script>
