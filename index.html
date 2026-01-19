@@ -5,11 +5,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>David Haney | Web</title>
 
-<!-- FUENTE -->
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;800&display=swap" rel="stylesheet">
 
 <style>
-/* ================= RESET ================= */
+/* ===== RESET ===== */
 *{
   margin:0;
   padding:0;
@@ -17,13 +16,16 @@
   font-family:'Poppins',sans-serif;
 }
 
-body{
-  height:100vh;
-  color:white;
-  overflow:hidden;
+html,body{
+  height:100%;
 }
 
-/* ================= FONDO ANIMADO ================= */
+body{
+  color:white;
+  overflow:hidden; /* OK porque el scroll será INTERNO */
+}
+
+/* ===== FONDO ===== */
 .fondo{
   position:fixed;
   inset:0;
@@ -39,28 +41,33 @@ body{
   100%{background-position:0%}
 }
 
-/* ================= HEADER ================= */
+/* ===== HEADER ===== */
 header{
-  text-align:center;
-  padding:20px;
-  font-size:2rem;
+  height:70px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:1.8rem;
   font-weight:800;
   text-shadow:0 0 20px violet;
 }
 
-/* ================= CONTENEDOR ================= */
+/* ===== LAYOUT ===== */
 .contenedor{
+  height:calc(100vh - 70px);
   display:grid;
   grid-template-columns:260px 1fr;
-  height:calc(100vh - 90px);
+  min-height:0; /* CRÍTICO */
 }
 
-/* ================= BOTONERA DESLIZABLE ================= */
+/* ===== BOTONERA ===== */
 .botonera{
   background:rgba(0,0,0,0.7);
   padding:15px;
   display:flex;
   flex-direction:column;
+  height:100%;
+  min-height:0; /* CRÍTICO */
 }
 
 .botonera h2{
@@ -73,10 +80,11 @@ header{
 .menu-scroll{
   flex:1;
   overflow-y:auto;
+  min-height:0;
   padding-right:6px;
 }
 
-/* SCROLL BAR BONITA */
+/* SCROLL BAR */
 .menu-scroll::-webkit-scrollbar{
   width:6px;
 }
@@ -105,43 +113,42 @@ header{
   transform:translateX(6px) scale(1.05);
 }
 
-/* ================= CONTENIDO ================= */
+/* ===== CONTENIDO ===== */
 .contenido{
   padding:30px;
-  position:relative;
-  animation:aparecer 1s ease;
+  overflow-y:auto;
+  height:100%;
+  min-height:0;
   text-align:center;
+  position:relative;
 }
 
 .contenido h2{
-  font-size:2.4rem;
+  font-size:2.3rem;
   margin-bottom:15px;
 }
 
 .contenido p{
   max-width:700px;
   margin:0 auto;
-  font-size:1.1rem;
   line-height:1.6;
-  opacity:0.9;
 }
 
-/* ================= ANUNCIO FLOTANTE ================= */
+/* ===== ANUNCIO ===== */
 .anuncio{
   position:absolute;
   top:20px;
   right:20px;
-  width:280px;
+  width:260px;
   background:rgba(0,0,0,0.6);
-  border-radius:20px;
+  border-radius:18px;
   padding:10px;
-  animation:flotar 4s ease-in-out infinite;
-  box-shadow:0 0 30px rgba(0,0,0,0.7);
+  animation:flotar 4s infinite;
 }
 
 .anuncio img{
   width:100%;
-  border-radius:15px;
+  border-radius:12px;
 }
 
 .anuncio span{
@@ -151,42 +158,57 @@ header{
   opacity:0.7;
 }
 
-/* ================= CARRUSEL ================= */
+/* ===== CARRUSEL ===== */
 .carrusel{
-  margin-top:40px;
+  margin-top:50px;
 }
 
 .carrusel img{
-  width:85%;
+  width:90%;
   max-width:900px;
   border-radius:25px;
   box-shadow:0 0 35px rgba(0,0,0,0.7);
   transition:opacity 0.5s;
 }
 
-/* ================= FOOTER ================= */
+/* ===== FOOTER ===== */
 footer{
   text-align:center;
   padding:10px;
   opacity:0.7;
 }
 
-/* ================= ANIMACIONES ================= */
+/* ===== ANIMACIONES ===== */
 @keyframes flotar{
   0%,100%{transform:translateY(0)}
   50%{transform:translateY(-12px)}
 }
 
-@keyframes aparecer{
-  from{opacity:0; transform:translateY(30px)}
-  to{opacity:1; transform:translateY(0)}
+/* ===== RESPONSIVE ===== */
+@media(max-width:900px){
+  .contenedor{
+    grid-template-columns:200px 1fr;
+  }
 }
 
-/* ================= RESPONSIVE ================= */
-@media(max-width:768px){
+@media(max-width:700px){
+  body{
+    overflow:auto;
+  }
+
   .contenedor{
     grid-template-columns:1fr;
+    height:auto;
   }
+
+  .botonera{
+    height:220px;
+  }
+
+  .contenido{
+    height:auto;
+  }
+
   .anuncio{
     position:static;
     margin:20px auto;
@@ -203,7 +225,6 @@ footer{
 
 <div class="contenedor">
 
-  <!-- BOTONERA -->
   <aside class="botonera">
     <h2>MENÚ</h2>
     <div class="menu-scroll">
@@ -217,34 +238,28 @@ footer{
       <button>📡 Redes</button>
       <button>🛠 Herramientas</button>
       <button>📞 Contacto</button>
-      <!-- AGREGA 100 MÁS SI QUIERES -->
+      <button>➕ Otro botón</button>
+      <button>➕ Otro más</button>
+      <button>➕ Y otro</button>
     </div>
   </aside>
 
-  <!-- CONTENIDO -->
   <section class="contenido">
-
     <h2>Bienvenido 👾</h2>
     <p>
-      Esta es mi página web personal creada desde cero con
-      HTML, CSS y JavaScript.<br><br>
-      Aquí encontrarás tecnología, programación,
-      proyectos locos y contenido de mi canal de YouTube.
-      <br><br>
-      💜💙 Aprender, crear y romper límites digitales.
+      Web creada desde cero con HTML, CSS y JavaScript.<br><br>
+      Totalmente responsive, con menú deslizable,
+      carrusel automático y anuncios flotantes.
     </p>
 
-    <!-- ANUNCIO FLOTANTE -->
     <div class="anuncio">
       <img id="anuncio-img" src="https://picsum.photos/300/200?1">
-      <span>🔥 Anuncio destacado</span>
+      <span>🔥 Anuncio</span>
     </div>
 
-    <!-- CARRUSEL -->
     <div class="carrusel">
       <img id="carrusel-img" src="https://picsum.photos/900/400?1">
     </div>
-
   </section>
 
 </div>
@@ -252,7 +267,6 @@ footer{
 <footer>© 2026 — David Haney</footer>
 
 <script>
-/* ================= CARRUSEL ================= */
 const carruselImgs=[
   "https://picsum.photos/900/400?1",
   "https://picsum.photos/900/400?2",
@@ -272,7 +286,6 @@ setInterval(()=>{
   },400);
 },3000);
 
-/* ================= ANUNCIO ================= */
 const anuncioImgs=[
   "https://picsum.photos/300/200?5",
   "https://picsum.photos/300/200?6",
