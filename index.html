@@ -3,266 +3,254 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>David Haney | Web</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;800&display=swap" rel="stylesheet">
+<title>Proyecto en Desarrollo</title>
 
 <style>
-/* ===== RESET ===== */
-*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
-html,body{height:100%}
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family: 'Segoe UI', sans-serif;
+}
 
-/* ===== BODY ===== */
 body{
-  color:#fff;
-  background:#000;
+  background:linear-gradient(135deg,#3a0ca3,#4361ee);
+  color:white;
+  height:100vh;
   overflow:hidden;
 }
 
-/* ===== FONDO ===== */
-.fondo{
-  position:fixed;
-  inset:0;
-  background:linear-gradient(120deg,#4b0082,#000,#1e90ff);
-  background-size:400% 400%;
-  animation:fondo 18s infinite;
-  z-index:-1;
-}
-@keyframes fondo{
-  0%{background-position:0%}
-  50%{background-position:100%}
-  100%{background-position:0%}
-}
-
-/* ===== HEADER ===== */
-header{
-  height:80px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-size:2rem;
-  font-weight:800;
-  letter-spacing:3px;
-  text-shadow:0 0 25px #8a2be2;
-}
-
-/* ===== LAYOUT ===== */
+/* ===== GRID GENERAL ===== */
 .contenedor{
-  height:calc(100vh - 80px);
   display:grid;
-  grid-template-columns:300px 1fr;
-  min-height:0;
+  grid-template-columns:80px 1fr;
+  height:100vh;
 }
 
 /* ===== MENU ===== */
-.botonera{
-  background:rgba(0,0,0,0.75);
-  border-right:1px solid rgba(255,255,255,0.1);
-  padding:20px 15px;
+.menu{
+  background:rgba(0,0,0,0.35);
+  backdrop-filter:blur(15px);
+  padding:10px;
   display:flex;
   flex-direction:column;
-  min-height:0;
+  gap:10px;
+  overflow-y:auto;
 }
 
-.botonera h2{
-  text-align:center;
-  margin-bottom:15px;
-  color:#b794f4;
-  font-size:1.2rem;
-}
-
-/* SCROLL */
-.menu-scroll{
-  flex:1;
-  overflow-y:scroll;
-  padding-right:8px;
-}
-
-/* Scroll visible SIEMPRE (desktop) */
-.menu-scroll::-webkit-scrollbar{width:8px}
-.menu-scroll::-webkit-scrollbar-thumb{
-  background:linear-gradient(#8a2be2,#1e90ff);
-  border-radius:10px;
-}
-
-/* BOTONES */
-.menu-scroll button{
-  width:100%;
-  margin-bottom:12px;
-  padding:15px;
-  border-radius:14px;
+.menu button{
+  background:linear-gradient(135deg,#7209b7,#560bad);
   border:none;
-  background:rgba(255,255,255,0.12);
   color:white;
-  font-size:1rem;
+  padding:15px;
+  border-radius:15px;
   cursor:pointer;
-  transition:0.3s;
+  transition:.3s;
+  min-height:55px;
 }
-.menu-scroll button:hover{
-  background:#6a5acd;
-  box-shadow:0 0 20px #6a5acd;
-  transform:translateX(6px);
+
+.menu button:hover{
+  transform:scale(1.08);
+  background:linear-gradient(135deg,#b5179e,#7209b7);
+}
+
+/* SCROLL BONITO */
+.menu::-webkit-scrollbar{
+  width:6px;
+}
+.menu::-webkit-scrollbar-thumb{
+  background:#b5179e;
+  border-radius:10px;
 }
 
 /* ===== CONTENIDO ===== */
 .contenido{
-  position:relative;
-  overflow-y:auto;
-  padding:40px;
+  padding:20px;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  overflow:hidden;
 }
 
-/* CONTENIDO CENTRADO EN DESKTOP */
 .contenido-inner{
-  max-width:1100px;
-  margin:auto;
+  max-width:900px;
+  width:100%;
   text-align:center;
+  animation:fadeUp 1s ease;
 }
 
-.contenido h2{
-  font-size:2.6rem;
-  margin-bottom:20px;
+@keyframes fadeUp{
+  from{opacity:0; transform:translateY(30px);}
+  to{opacity:1; transform:translateY(0);}
 }
+
+.contenido h1{
+  font-size:2.8rem;
+  margin-bottom:15px;
+}
+
 .contenido p{
-  font-size:1.15rem;
-  line-height:1.7;
-  opacity:0.9;
-}
-
-/* ===== ANUNCIO DESKTOP ===== */
-.anuncio{
-  position:absolute;
-  left:30px;
-  top:50%;
-  transform:translateY(-50%);
-  width:260px;
-  background:rgba(0,0,0,0.7);
-  border-radius:18px;
-  padding:10px;
-  animation:flotar 4s infinite;
-}
-.anuncio img{width:100%;border-radius:14px}
-.anuncio span{
-  display:block;
-  font-size:0.85rem;
-  opacity:0.7;
-  margin-top:6px;
+  font-size:1.1rem;
+  opacity:.9;
+  margin-bottom:30px;
 }
 
 /* ===== CARRUSEL ===== */
 .carrusel{
-  margin-top:50px;
+  position:relative;
+  width:100%;
+  max-width:800px;
+  margin:auto;
+  overflow:hidden;
+  border-radius:25px;
+  box-shadow:0 0 40px rgba(0,0,0,.5);
 }
+
 .carrusel img{
   width:100%;
-  max-width:1000px;
-  border-radius:25px;
-  box-shadow:0 0 40px rgba(0,0,0,0.8);
-  transition:opacity .5s;
+  display:none;
 }
 
-/* ===== FOOTER ===== */
-footer{
-  text-align:center;
-  padding:12px;
-  opacity:0.6;
+.carrusel img.active{
+  display:block;
+  animation:zoom 1s ease;
 }
 
-/* ===== ANIM ===== */
+@keyframes zoom{
+  from{transform:scale(1.1);}
+  to{transform:scale(1);}
+}
+
+/* ===== ANUNCIO ===== */
+.anuncio{
+  position:fixed;
+  bottom:20px;
+  right:20px;
+  background:linear-gradient(135deg,#f72585,#b5179e);
+  padding:15px 20px;
+  border-radius:20px;
+  box-shadow:0 0 30px rgba(0,0,0,.5);
+  animation:flotar 3s ease-in-out infinite;
+  z-index:99;
+}
+
 @keyframes flotar{
-  0%,100%{transform:translateY(-50%)}
-  50%{transform:translateY(-55%)}
+  0%,100%{transform:translateY(0);}
+  50%{transform:translateY(-10px);}
 }
 
-/* ===== RESPONSIVE ===== */
-@media(max-width:900px){
-  .contenedor{grid-template-columns:220px 1fr}
-  .anuncio{display:none}
+/* ===== DESKTOP PRO ===== */
+@media(min-width:1100px){
+
+  .contenedor{
+    grid-template-columns:260px 1fr 300px;
+  }
+
+  .menu{
+    padding:20px;
+  }
+
+  .menu button{
+    text-align:left;
+    font-size:1rem;
+  }
+
+  .contenido{
+    align-items:flex-start;
+    padding:60px;
+  }
+
+  .contenido-inner{
+    text-align:left;
+  }
+
+  .contenido h1{
+    font-size:3.5rem;
+  }
+
+  .contenido p{
+    max-width:750px;
+    font-size:1.2rem;
+  }
+
+  .anuncio{
+    position:sticky;
+    top:120px;
+    right:auto;
+    bottom:auto;
+    animation:none;
+    height:fit-content;
+  }
 }
 
-@media(max-width:700px){
-  body{overflow:auto}
-  .contenedor{grid-template-columns:1fr;height:auto}
-  .botonera{height:220px}
-  .contenido{padding:20px}
+/* ===== MOVIL ===== */
+@media(max-width:600px){
+  .contenedor{
+    grid-template-columns:70px 1fr;
+  }
+
+  .contenido h1{
+    font-size:2.2rem;
+  }
 }
 </style>
 </head>
 
 <body>
 
-<div class="fondo"></div>
-<header>⚡ DAVID HANEY ⚡</header>
-
 <div class="contenedor">
 
-  <aside class="botonera">
-    <h2>MENÚ</h2>
-    <div class="menu-scroll">
-      <button>🏠 Inicio</button>
-      <button>🚀 Proyectos</button>
-      <button>💻 Tecnología</button>
-      <button>👨‍💻 Programación</button>
-      <button>🎮 Juegos</button>
-      <button>📁 Descargas</button>
-      <button>🤖 IA</button>
-      <button>📡 Redes</button>
-      <button>🛠 Herramientas</button>
-      <button>📞 Contacto</button>
-      <button>➕ Extra</button>
-      <button>➕ Extra</button>
-      <button>➕ Extra</button>
-    </div>
-  </aside>
+  <!-- MENU DESLIZABLE -->
+  <div class="menu">
+    <button>Inicio</button>
+    <button>Descargas</button>
+    <button>Linux</button>
+    <button>Windows</button>
+    <button>Hacking</button>
+    <button>Programación</button>
+    <button>Proyectos</button>
+    <button>Extras</button>
+    <button>Contacto</button>
+    <button>Más</button>
+    <button>Otro</button>
+    <button>Otro 2</button>
+  </div>
 
-  <section class="contenido">
-    <div class="anuncio">
-      <img id="ad-img" src="https://picsum.photos/300/200?1">
-      <span>🔥 Anuncio destacado</span>
-    </div>
-
+  <!-- CONTENIDO -->
+  <div class="contenido">
     <div class="contenido-inner">
-      <h2>Bienvenido 👾</h2>
+      <h1>🚧 Página en Desarrollo</h1>
       <p>
-        Web creada desde cero con HTML, CSS y JavaScript.<br><br>
-        Optimizada para escritorio y Android,
-        con menú deslizable real,
-        carrusel automático
-        y anuncios flotantes.
+        Esta página aún está en construcción.  
+        Puede convertirse en un proyecto épico…  
+        o desaparecer del multiverso 😈
       </p>
 
       <div class="carrusel">
-        <img id="carousel" src="https://picsum.photos/1000/450?1">
+        <img src="https://picsum.photos/900/400?1" class="active">
+        <img src="https://picsum.photos/900/400?2">
+        <img src="https://picsum.photos/900/400?3">
       </div>
     </div>
-  </section>
+  </div>
+
+  <!-- ANUNCIO -->
+  <div class="anuncio">
+    🔥 PROYECTO SECRETO 🔥<br>
+    Muy pronto…
+  </div>
 
 </div>
 
-<footer>© 2026 — David Haney</footer>
-
 <script>
-/* Carrusel */
-const imgs=[
-  "https://picsum.photos/1000/450?1",
-  "https://picsum.photos/1000/450?2",
-  "https://picsum.photos/1000/450?3"
-];
-let i=0;
-const car=document.getElementById("carousel");
-setInterval(()=>{
-  i=(i+1)%imgs.length;
-  car.style.opacity=0;
-  setTimeout(()=>{car.src=imgs[i];car.style.opacity=1},400);
-},3000);
+let index=0;
+const imgs=document.querySelectorAll('.carrusel img');
 
-/* Anuncio */
-const ads=[
-  "https://picsum.photos/300/200?4",
-  "https://picsum.photos/300/200?5"
-];
-let a=0;
-const ad=document.getElementById("ad-img");
-setInterval(()=>{a=(a+1)%ads.length;ad.src=ads[a]},4000);
+setInterval(()=>{
+  imgs[index].classList.remove('active');
+  index=(index+1)%imgs.length;
+  imgs[index].classList.add('active');
+},3500);
 </script>
 
 </body>
