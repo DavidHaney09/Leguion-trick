@@ -2,24 +2,23 @@ function irA(url) {
   window.location.href = url;
 }
 
-/* Carrusel automático */
-const imagenes = [
-  "https://picsum.photos/800/400?random=1",
-  "https://picsum.photos/800/400?random=2",
-  "https://picsum.photos/800/400?random=3",
-  "https://picsum.photos/800/400?random=4"
+/* Carrusel */
+const imgs = [
+  "https://picsum.photos/900/400?1",
+  "https://picsum.photos/900/400?2",
+  "https://picsum.photos/900/400?3",
+  "https://picsum.photos/900/400?4"
 ];
 
-let index = 0;
-const img = document.getElementById("carrusel-img");
+let i = 0;
+const carrusel = document.getElementById("carrusel");
 
 setInterval(() => {
-  index = (index + 1) % imagenes.length;
-  img.style.opacity = 0;
+  i = (i + 1) % imgs.length;
+  carrusel.style.opacity = 0;
 
   setTimeout(() => {
-    img.src = imagenes[index];
-    img.style.opacity = 1;
+    carrusel.src = imgs[i];
+    carrusel.style.opacity = 1;
   }, 400);
-
 }, 3000);
