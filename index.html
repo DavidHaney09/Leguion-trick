@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Proyecto en Desarrollo</title>
+<title>David Haney | Web</title>
 
 <style>
 *{
@@ -17,7 +17,6 @@ body{
   background:linear-gradient(135deg,#3a0ca3,#4361ee);
   color:white;
   height:100vh;
-  overflow:hidden;
 }
 
 /* ===== GRID GENERAL ===== */
@@ -65,15 +64,12 @@ body{
 /* ===== CONTENIDO ===== */
 .contenido{
   padding:20px;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  overflow:hidden;
+  overflow-y:auto; /* 🔥 FIX CLAVE PARA PC */
 }
 
 .contenido-inner{
   max-width:900px;
-  width:100%;
+  margin:auto;
   text-align:center;
   animation:fadeUp 1s ease;
 }
@@ -90,8 +86,9 @@ body{
 
 .contenido p{
   font-size:1.1rem;
-  opacity:.9;
-  margin-bottom:30px;
+  opacity:.95;
+  margin-bottom:25px;
+  line-height:1.6;
 }
 
 /* ===== CARRUSEL ===== */
@@ -99,7 +96,7 @@ body{
   position:relative;
   width:100%;
   max-width:800px;
-  margin:auto;
+  margin:40px auto;
   overflow:hidden;
   border-radius:25px;
   box-shadow:0 0 40px rgba(0,0,0,.5);
@@ -120,7 +117,7 @@ body{
   to{transform:scale(1);}
 }
 
-/* ===== ANUNCIO FLOTANTE QUE SIGUE LA PANTALLA ===== */
+/* ===== ANUNCIO FLOTANTE ===== */
 .anuncio{
   position:fixed;
   bottom:20px;
@@ -154,17 +151,12 @@ body{
     font-size:1rem;
   }
 
-  .contenido{
-    align-items:flex-start;
-    padding:60px;
-  }
-
   .contenido-inner{
     text-align:left;
   }
 
   .contenido h1{
-    font-size:3.5rem;
+    font-size:3.2rem;
   }
 
   .contenido p{
@@ -199,15 +191,15 @@ body{
 
   <!-- MENU -->
   <div class="menu">
-    <button>Inicio</button>
-    <button>Descargas</button>
-    <button>Linux</button>
-    <button>Windows</button>
-    <button>Hacking</button>
-    <button>Programación</button>
-    <button>Proyectos</button>
-    <button>Extras</button>
-    <button>Contacto</button>
+    <button onclick="irA('index.html')">Inicio</button>
+    <button onclick="irA('descargas.html')">Descargas</button>
+    <button onclick="irA('linux.html')">Linux</button>
+    <button onclick="irA('windows.html')">Windows</button>
+    <button onclick="irA('hacking.html')">Hacking</button>
+    <button onclick="irA('programacion.html')">Programación</button>
+    <button onclick="irA('proyectos.html')">Proyectos</button>
+    <button onclick="irA('extras.html')">Extras</button>
+    <button onclick="irA('contacto.html')">Contacto</button>
     <button>Más</button>
     <button>Otro</button>
     <button>Otro 2</button>
@@ -216,10 +208,15 @@ body{
   <!-- CONTENIDO -->
   <div class="contenido">
     <div class="contenido-inner">
-      <h1>🚧 Página en Desarrollo</h1>
+      <h1>Bienvenido 👋</h1>
       <p>
-        Proyecto en evolución constante.  
-        Aquí puede nacer algo legendario…
+        Esta es mi página web personal creada desde cero con HTML, CSS y JavaScript.
+        Aquí comparto contenido relacionado con mi canal de YouTube, tecnología,
+        programación y aprendizaje.
+        <br><br>
+        La idea es ayudar, enseñar y crecer juntos en este mundo digital.
+        <br><br>
+        Página creada por <strong>David Haney</strong> 💜💙
       </p>
 
       <div class="carrusel">
@@ -232,13 +229,14 @@ body{
 
 </div>
 
-<!-- ANUNCIO GLOBAL -->
+<!-- ANUNCIO -->
 <div class="anuncio">
   🔥 PROYECTO SECRETO 🔥<br>
   Se acerca algo grande…
 </div>
 
 <script>
+/* Carrusel */
 let index=0;
 const imgs=document.querySelectorAll('.carrusel img');
 
@@ -247,6 +245,11 @@ setInterval(()=>{
   index=(index+1)%imgs.length;
   imgs[index].classList.add('active');
 },3500);
+
+/* Navegación botones */
+function irA(url){
+  window.location.href = url;
+}
 </script>
 
 </body>
