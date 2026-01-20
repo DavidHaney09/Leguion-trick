@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Distribuciones Linux | David Haney</title>
+
+<style>
+:root{
+  --morado:#9d4edd;
+  --azul:#4cc9f0;
+  --rosa:#f72585;
+  --glass:rgba(255,255,255,.08);
+  --blur:blur(18px);
+}
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Segoe UI',system-ui,sans-serif;
+}
+
+body{
+  min-height:100vh;
+  background:
+    radial-gradient(circle at top,#2a0050,#05000d),
+    linear-gradient(120deg,#05000a,#12001f);
+  color:white;
+  overflow-x:hidden;
+}
+
+/* ===== HEADER ===== */
+header{
+  padding:40px 20px;
+  text-align:center;
+}
+
+header h1{
+  font-size:3rem;
+  color:var(--morado);
+  text-shadow:0 0 40px var(--morado);
+}
+
+header p{
+  opacity:.85;
+}
+
+/* ===== CONTENEDOR ===== */
+.wrapper{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:20px;
+  padding:40px 10px;
+}
+
+/* ===== BOTONES LATERALES ===== */
+.ctrl{
+  width:70px;
+  height:260px;
+  border:none;
+  border-radius:40px;
+  font-size:3rem;
+  cursor:pointer;
+  color:white;
+  background:linear-gradient(135deg,var(--morado),var(--rosa));
+  box-shadow:0 0 40px rgba(0,0,0,.6);
+  transition:.3s;
+}
+
+.ctrl:hover{
+  transform:scale(1.1);
+}
+
+/* ===== CARRUSEL ===== */
+.carousel{
+  position:relative;
+  width:100%;
+  max-width:900px;
+  height:360px;
+  overflow:hidden;
+}
+
+.track{
+  display:flex;
+  height:100%;
+  transition:transform .9s cubic-bezier(.77,0,.18,1);
+}
+
+/* ===== SECCIÓN ===== */
+.section{
+  min-width:100%;
+  padding:50px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  background:var(--glass);
+  backdrop-filter:var(--blur);
+  border-radius:35px;
+  box-shadow:0 0 60px rgba(0,0,0,.6);
+  opacity:.35;
+  transform:scale(.85);
+  transition:.6s;
+}
+
+.section.active{
+  opacity:1;
+  transform:scale(1);
+  box-shadow:0 0 80px rgba(157,78,221,.7);
+}
+
+/* ===== TEXTO ===== */
+.info h2{
+  font-size:3rem;
+  color:var(--azul);
+  text-shadow:0 0 25px var(--azul);
+}
+
+.info p{
+  margin:18px 0;
+  opacity:.9;
+  font-size:1.1rem;
+}
+
+.info a{
+  display:inline-block;
+  margin-top:20px;
+  padding:16px 32px;
+  border-radius:35px;
+  text-decoration:none;
+  color:white;
+  font-weight:bold;
+  background:linear-gradient(135deg,var(--rosa),var(--morado));
+  box-shadow:0 0 25px rgba(0,0,0,.5);
+  transition:.3s;
+}
+
+.info a:hover{
+  transform:scale(1.15);
+  box-shadow:0 0 40px var(--rosa);
+}
+
+/* ===== FOOTER ===== */
+footer{
+  margin-top:50px;
+  padding:25px;
+  text-align:center;
+  font-size:.9rem;
+  opacity:.8;
+}
+
+/* ===== RESPONSIVE ===== */
+@media(max-width:900px){
+  .ctrl{
+    height:90px;
+    width:90px;
+  }
+
+  .section{
+    padding:35px 20px;
+  }
+
+  .info h2{
+    font-size:2.2rem;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <h1>Distribuciones Linux</h1>
+  <p>Sistemas operativos libres — enlaces oficiales</p>
+</header>
+
+<div class="wrapper">
+  <button class="ctrl" onclick="prev()">❮</button>
+
+  <div class="carousel">
+    <div class="track" id="track">
+
+      <div class="section active">
+        <div class="info">
+          <h2>CentOS</h2>
+          <p>Distribución estable orientada a servidores y entornos empresariales.</p>
+          <a href="https://www.centos.org">Sitio oficial</a>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="info">
+          <h2>Ubuntu</h2>
+          <p>Linux popular, seguro y respaldado por Canonical.</p>
+          <a href="https://ubuntu.com">Sitio oficial</a>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="info">
+          <h2>Kubuntu</h2>
+          <p>Ubuntu con entorno KDE Plasma moderno.</p>
+          <a href="https://kubuntu.org">Sitio oficial</a>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="info">
+          <h2>Lubuntu</h2>
+          <p>Ligero y rápido, ideal para equipos modestos.</p>
+          <a href="https://lubuntu.me">Sitio oficial</a>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="info">
+          <h2>Linux Mint</h2>
+          <p>Perfecto para usuarios nuevos que vienen de Windows.</p>
+          <a href="https://linuxmint.com">Sitio oficial</a>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="info">
+          <h2>Zorin OS</h2>
+          <p>Diseñado para facilitar la transición desde Windows.</p>
+          <a href="https://zorin.com/os">Sitio oficial</a>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="info">
+          <h2>CNU Linux</h2>
+          <p>Distribución académica basada en Ubuntu.</p>
+          <a href="https://www.ubuntukylin.com">Sitio oficial</a>
+        </div>
+      </div>
+      <div class="section">
+        <div class="info">
+          <h2>Kali Linux</h2>
+          <p>Distribución de siver seguridad</p>
+          <a href="https://www.kali.org/get-kali/#kali-platforms">Sitio oficial</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <button class="ctrl" onclick="next()">❯</button>
+</div>
+
+<footer>
+  © David Haney — Todos los derechos reservados.<br>
+  Linux y las distribuciones mencionadas pertenecen a sus respectivos creadores.
+</footer>
+
+<script>
+let index=0;
+const track=document.getElementById('track');
+const sections=document.querySelectorAll('.section');
+
+function update(){
+  track.style.transform=`translateX(-${index*100}%)`;
+  sections.forEach((s,i)=>s.classList.toggle('active',i===index));
+}
+
+function next(){
+  index=(index+1)%sections.length;
+  update();
+}
+
+function prev(){
+  index=(index-1+sections.length)%sections.length;
+  update();
+}
+</script>
+
+</body>
+</html>
